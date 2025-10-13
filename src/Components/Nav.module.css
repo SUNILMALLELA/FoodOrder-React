@@ -1,0 +1,85 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px 50px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: #ff6600;
+    letter-spacing: 1px;
+}
+
+.navlinks {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+}
+
+.navlinks a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navlinks a:hover {
+    color: #ff6600;
+}
+
+.modernbutton {
+    display: flex;
+    gap: 12px;
+}
+
+.login,
+.signup {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login {
+    background-color: #00bcd4;
+    color: white;
+}
+
+.signup {
+    background-color: #4caf50;
+    color: white;
+}
+
+.login:hover {
+    background-color: #0097a7;
+}
+
+.signup:hover {
+    background-color: #388e3c;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .navlinks {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .modernbutton {
+        flex-direction: column;
+    }
+}
