@@ -1,10 +1,11 @@
-.searchContainer{
+.searchContainer {
     width: 300px;
     position: relative;
     margin: 20px auto;
 }
-.input{
-    width:80%;
+
+.input {
+    width: 80%;
     border: none;
     padding: 10px 20px;
     border-color: 1 px solid red;
