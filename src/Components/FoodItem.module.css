@@ -1,61 +1,59 @@
 .itemContainer {
-    display: flex;
-    align-items: center;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    padding: 1rem;
-    margin: 1rem 0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
+  width: 300px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
 }
 
 .itemContainer:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .foodImage {
-    width: 100px;
-    height: 100px;
-    border-radius: 12px;
-    object-fit: cover;
-    margin-right: 1rem;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
 }
 
 .info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  padding: 16px;
+  text-align: center;
 }
 
 .foodName {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333;
-    margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
 }
 
 .cuisine {
-    color: #777;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 12px;
 }
 
 .viewButton {
-    background-color: #ff4b2b;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s;
-    width: fit-content;
+  background-color: #ff6b00;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .viewButton:hover {
-    background-color: #e03e22;
-    transform: scale(1.05);
+  background-color: #e85d00;
+  transform: scale(1.05);
 }
