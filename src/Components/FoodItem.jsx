@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './FoodItem.module.css';
+import { useNavigate } from 'react-router-dom';
 
-function FoodItem({ food, setFoodId }) {
+function FoodItem({ food }) {
+    const navigate = useNavigate();
     return (
         <div className={styles.itemContainer}>
             <img src={food.image} alt={food.name} className={styles.foodImage} />
@@ -10,7 +12,7 @@ function FoodItem({ food, setFoodId }) {
                 <p className={styles.cuisine}>{food.cuisine}</p>
                 <button
                     className={styles.viewButton}
-                    onClick={() => setFoodId(food.id)}
+                    onClick={() => navigate(`/food/${food.id}`)}
                 >
                     View Recipe
                 </button>

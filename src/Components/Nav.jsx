@@ -8,13 +8,12 @@ function Nav() {
                 <ul className={styles.navlinks}>
                     <li><a href=''>Home</a></li>
                     <li><a href=''>Menu</a></li>
-                    <li><a href=''>Cart</a></li>
+                    <li><a href=''>Offers</a></li>
                     <li><a href=''>Contact</a></li>
-
                 </ul>
                 <div className={styles.modernbutton}>
-                    <button className={styles.login}>Login</button>
-                    <button className={styles.signup}>Signup</button>
+                    <button className={styles.login}>Add to Cart</button>
+                    <button className={styles.signup}>Logout</button>
                 </div>
             </nav>
 

@@ -1,26 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Search.module.css'
-function Search({ foodData, setFoodData }) {
-    const [query, setQuery] = useState("");
+function Search({ setQuery }) {
+    const [inputData, setInputData] = useState('');
     useEffect(() => {
-        async function fetchFood() {
-            try {
-                const res = await fetch(`https://dummyjson.com/recipes/search?q=${query}`)
-                const data = await res.json()
-                // console.log("Data", data.recipes)
-                setFoodData(data.recipes)
-            }
-            catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        }
-        fetchFood()
-    }, [query])
+        setQuery(inputData)
+    }, [inputData])
     return (
         <>
             <div className={styles.searchContainer}>
-                <input className={styles.input} type="text" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search for recipes..."
+                <input className={styles.input} type="text" value={inputData} onChange={(e) => setInputData(e.target.value)} placeholder="Search for recipes..."
                 />
+                <button onClick={() => {
+                    setInputData('')
+                }}>clear</button>
             </div>
 
         </>
