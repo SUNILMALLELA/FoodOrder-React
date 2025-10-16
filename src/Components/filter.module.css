@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.uparrow,
+.downarrow {
+    background-color: #ffffff;
+    border: 2px solid #1976d2;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.uparrow:hover,
+.downarrow:hover {
+    background-color: #1976d2;
+    color: white;
+    transform: scale(1.1);
+}
+
+.uparrow svg,
+.downarrow svg {
+    color: #1976d2;
+    transition: color 0.3s ease;
+}
+
+.uparrow:hover svg,
+.downarrow:hover svg {
+    color: white;
+}

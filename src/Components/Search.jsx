@@ -14,7 +14,6 @@ function Search({ setQuery }) {
                     setInputData('')
                 }}>clear</button>
             </div>
-
         </>
     );
 }
