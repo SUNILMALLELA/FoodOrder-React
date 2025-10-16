@@ -28,12 +28,24 @@ function FoodList() {
         }
     }
 
-    const getAlltagsRecipes = async () => {
+    const getAlltags = async () => {
         try {
             const res = await fetch(`https://dummyjson.com/recipes/tags`)
             const data = await res.json()
-            console.log(data);
+            //console.log(data);
             setTags(data)
+        }
+        catch (error) {
+            console.log("Error getAlltagsRecipes data", error);
+
+        }
+    }
+        const getSelectedtagsRecipes = async (tag) => {  
+        try {
+            const res = await fetch(`https://dummyjson.com/recipes/tag/${tag}`)
+            const data = await res.json()
+            //console.log(data);
+             setFoodData(data.recipes)
         }
         catch (error) {
             console.log("Error getAlltagsRecipes data", error);
@@ -55,27 +67,54 @@ function FoodList() {
         }
     }, [sort])
     useEffect(() => {
-        getAlltagsRecipes()
+        getAlltags()
     }, [])
 
-    return (
-        <>
-            <Search setQuery={setQuery} />
-            <Filter setSort={setSort} />
-            <TagRecipes tags={tags} />
-            <div style={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "center",
-                gap: "2rem",
-                padding: "20px"
-            }}>
-                {(foodData && foodData.length > 0) && foodData.map((food, index) => (
-                    <FoodItem key={index} food={food} />
-                ))}
-            </div>
-        </>
-    );
+   return (
+  <>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "20px",
+        flexWrap: "wrap",
+        background: "#fff",
+        padding: "15px 20px",
+        borderRadius: "12px",
+        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+        margin: "20px auto",
+        width: "90%",
+        maxWidth: "1200px",
+      }}
+    >
+         <TagRecipes
+        tags={tags}
+        getSelectedtagsRecipes={getSelectedtagsRecipes}
+      />
+      <div style={{ marginBottom: "18px" }}>
+        <Search setQuery={setQuery} />
+      </div>
+      <Filter setSort={setSort} />
+    </div>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        gap: "2rem",
+        padding: "20px",
+      }}
+    >
+      {foodData &&
+        foodData.length > 0 &&
+        foodData.map((food, index) => (
+          <FoodItem key={index} food={food} />
+        ))}
+    </div>
+  </>
+   );
 }
+
 
 export default FoodList;
