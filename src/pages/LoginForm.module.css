@@ -1,0 +1,151 @@
+/* LoginForm.module.css */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #2b6777 50%, #c8d8e4 50%);
+}
+
+.loginForm {
+  background-color: #ffffff;
+  padding: 50px 40px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  width: 380px;
+  text-align: center;
+}
+
+.loginForm h2 {
+  margin-bottom: 30px;
+  color: #333333;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.topButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.loginTop {
+  flex: 1;
+  margin-right: 10px;
+  padding: 12px 0;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.signupTop {
+  flex: 1;
+  margin-left: 10px;
+  padding: 12px 0;
+  background-color: #ffffff;
+  color: #1e90ff;
+  border: 1px solid #1e90ff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+
+.loginForm input {
+  width: 100%;
+  padding: 14px 18px;
+  margin: 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.loginForm input:focus {
+  border-color: #1e90ff;
+  box-shadow: 0 0 8px rgba(138, 43, 226, 0.5);
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.extraLinks {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.extraLinks a {
+  color: #1e90ff;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.extraLinks a:hover {
+  text-decoration: underline;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 14px 0;
+  margin-top: 10px;
+  background-color: #1e90ff;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: grey;
+}
+
+.registerText {
+  margin-top: 25px;
+  font-size: 14px;
+  color: #555555;
+}
+
+.registerText a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+.registerText a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 420px) {
+  .loginForm {
+    width: 90%;
+    padding: 40px 20px;
+  }
+
+  .topButtons {
+    flex-direction: column;
+  }
+
+  .loginTop,
+  .signupTop {
+    margin: 5px 0;
+  }
+}

@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./LoginForm.module.css";
+import styles from "./Register.module.css";
 
-function LoginForm() {
+function Register() {
     const navigate = useNavigate();
-    const [data, setData] = useState({ email: "", password: "" });
-    const [errors, setErrors] = useState({ email: "", password: "" });
+    const [data, setData] = useState({ email: "", password: "", confirmPassword: "" });
+    const [errors, setErrors] = useState({ email: "", password: "", confirmPassword: "" });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setData((prev) => ({ ...prev, [name]: value }));
-        setErrors({ email: "", password: "" });
+        setErrors({ email: "", password: "", confirmPassword: "" });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        let newErrors = { email: "", password: "" };
+        let newErrors = { email: "", password: "", confirmPassword: "" };
         let hasError = false;
 
         if (!data.email.trim()) {
@@ -34,6 +34,11 @@ function LoginForm() {
             hasError = true;
         }
 
+        if (data.password !== data.confirmPassword) {
+            newErrors.confirmPassword = "Passwords do not match.";
+            hasError = true;
+        }
+
         if (hasError) {
             setErrors(newErrors);
             return;
@@ -41,27 +46,28 @@ function LoginForm() {
 
         console.log("User Data:", data);
         setTimeout(() => {
-            alert("Login successful!");
-            setData({ email: "", password: "" });
-            setErrors({ email: "", password: "" });
-            navigate("/home")
+            alert("Registration successful!");
+            setData({ email: "", password: "", confirmPassword: "" });
+            setErrors({ email: "", password: "", confirmPassword: "" });
+            navigate("/login");
         }, 1000);
     };
 
     return (
         <div className={styles.loginContainer}>
             <form className={styles.loginForm} onSubmit={handleSubmit}>
-                <h2>Login Form</h2>
+                <h2>Register Form</h2>
                 <div className={styles.topButtons}>
-                    <button type="button" className={styles.loginTop}>Login</button>
                     <button
                         type="button"
-                        className={styles.signupTop}
-                        onClick={() => navigate("/register")}
+                        className={styles.loginTop}
+                        onClick={() => navigate("/login")}
                     >
-                        Register
+                        Login
                     </button>
+                    <button type="button" className={styles.signupTop}>Register</button>
                 </div>
+
                 <input
                     type="email"
                     name="email"
@@ -70,6 +76,7 @@ function LoginForm() {
                     onChange={handleChange}
                 />
                 {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
+
                 <input
                     type="password"
                     name="password"
@@ -78,17 +85,24 @@ function LoginForm() {
                     onChange={handleChange}
                 />
                 {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
-                <div className={styles.extraLinks}>
-                    <a href="#" className={styles.forgotLink}>Forgot password?</a>
-                </div>
-                <button type="submit" className={styles.submitButton}>Login</button>
+
+                <input
+                    type="password"
+                    name="confirmPassword"
+                    placeholder="Confirm Password"
+                    value={data.confirmPassword}
+                    onChange={handleChange}
+                />
+                {errors.confirmPassword && <p style={{ color: "red" }}>{errors.confirmPassword}</p>}
+
+                <button type="submit" className={styles.submitButton}>Register</button>
                 <p className={styles.registerText}>
-                    Don't have an account?{" "}
+                    Already have an account?{" "}
                     <span
                         style={{ color: "orange", cursor: "pointer" }}
-                        onClick={() => navigate("/register")}
+                        onClick={() => navigate("/")}
                     >
-                        Register now
+                        Login now
                     </span>
                 </p>
             </form>
@@ -96,4 +110,4 @@ function LoginForm() {
     );
 }
 
-export default LoginForm;
+export default Register;

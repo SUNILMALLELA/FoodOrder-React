@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Nav.module.css'
+import FoodList from '../pages/foodlist'
 function Nav() {
     return (
         <>
@@ -15,6 +16,7 @@ function Nav() {
                     <button className={styles.login}>Add to Cart</button>
                     <button className={styles.signup}>Logout</button>
                 </div>
+                <FoodList />
             </nav>
 
         </>
