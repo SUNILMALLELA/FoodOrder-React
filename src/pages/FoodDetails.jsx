@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './FoodDetails.module.css'
-function FoodDetails() {
+import Common from '../Components/common';
+function FoodDetailsChild() {
     const [food, setFood] = useState(null);
     const { id } = useParams();
     const URL = `https://dummyjson.com/recipes/${id}`;
@@ -43,4 +44,11 @@ function FoodDetails() {
     );
 }
 
+function FoodDetails() {
+    return (
+        <>
+            <Common ChildComponent={FoodDetailsChild} />
+        </>
+    )
+}
 export default FoodDetails;

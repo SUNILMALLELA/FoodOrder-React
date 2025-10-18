@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./LoginForm.module.css";
+import { toast } from "react-toastify";
 
 function LoginForm() {
     const navigate = useNavigate();
@@ -40,10 +41,12 @@ function LoginForm() {
         }
 
         console.log("User Data:", data);
+        toast.success("login success")
+        localStorage.setItem("isLoggedIn", true);
+        setData({ email: "", password: "" });
+        setErrors({ email: "", password: "" });
         setTimeout(() => {
-            alert("Login successful!");
-            setData({ email: "", password: "" });
-            setErrors({ email: "", password: "" });
+            //alert("Login successful!");
             navigate("/home")
         }, 1000);
     };
@@ -85,7 +88,7 @@ function LoginForm() {
                 <p className={styles.registerText}>
                     Don't have an account?{" "}
                     <span
-                        style={{ color: "orange", cursor: "pointer" }}
+                        style={{ color: "red", cursor: "pointer" }}
                         onClick={() => navigate("/register")}
                     >
                         Register now

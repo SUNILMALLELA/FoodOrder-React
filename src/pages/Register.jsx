@@ -99,8 +99,8 @@ function Register() {
                 <p className={styles.registerText}>
                     Already have an account?{" "}
                     <span
-                        style={{ color: "orange", cursor: "pointer" }}
-                        onClick={() => navigate("/")}
+                        style={{ color: "red", cursor: "pointer" }}
+                        onClick={() => navigate("/login")}
                     >
                         Login now
                     </span>

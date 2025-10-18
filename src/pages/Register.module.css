@@ -11,7 +11,7 @@
      justify-content: center;
      align-items: center;
      height: 100vh;
-     background: linear-gradient(to bottom, #52ab98 50%, #B5E2FA 50%);
+     background: linear-gradient(to bottom, #384959 50%, #BDDDFC 50%);
  }
 
  .loginForm {
@@ -115,7 +115,7 @@
  }
 
  .submitButton:hover {
-     background-color: grey;
+     background-color: #384959;
  }
 
  .registerText {
