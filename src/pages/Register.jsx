@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Register.module.css";
+import { toast } from "react-toastify";
 
 function Register() {
     const navigate = useNavigate();
@@ -45,10 +46,10 @@ function Register() {
         }
 
         console.log("User Data:", data);
+        toast.success("Registration successful!")
+        setData({ email: "", password: "", confirmPassword: "" });
+        setErrors({ email: "", password: "", confirmPassword: "" });
         setTimeout(() => {
-            alert("Registration successful!");
-            setData({ email: "", password: "", confirmPassword: "" });
-            setErrors({ email: "", password: "", confirmPassword: "" });
             navigate("/login");
         }, 1000);
     };

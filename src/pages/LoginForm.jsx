@@ -41,7 +41,7 @@ function LoginForm() {
         }
 
         console.log("User Data:", data);
-        toast.success("login success")
+        toast.success("login successfully")
         localStorage.setItem("isLoggedIn", true);
         setData({ email: "", password: "" });
         setErrors({ email: "", password: "" });

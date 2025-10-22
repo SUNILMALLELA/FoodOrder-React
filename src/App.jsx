@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Nav from "./Components/Nav";
 import FoodDetails from "./pages/FoodDetails";
 import LoginForm from "./pages/LoginForm";
 import Register from "./pages/Register";
@@ -26,4 +25,85 @@ function App() {
   );
 }
 
-export default App; 
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React from "react";
+// import UseReducer from "./Practice/UseReducer";
+// import UseReducerForm from "./Practice/UseReducerForm";
+// import { Routes, Route } from "react-router-dom";
+// import Home from "./Practice/Home";
+// import About from "./Practice/About";
+// import Profile from "./Practice/Profile";
+// import NavBar from "./Practice/NavBar";
+// import Contact from "./Practice/Contact";
+// import ProductList from "./Practice/ProductList";
+
+// function App() {
+//   return (
+//     <>
+//       <UseReducer />
+//       <UseReducerForm />
+//       <NavBar />
+//       <Routes>
+//         <Route path="/home" element={<Home />}>
+//           <Route path="profile" element={<Profile />}></Route>
+//           <Route path="contact" element={<Contact />}></Route>
+//         </Route>
+//         <Route path="/about" element={<About />}></Route>
+//         <Route path="/products/:ids" element={<ProductList />}></Route>
+
+//       </Routes>
+
+
+
+//     </>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
