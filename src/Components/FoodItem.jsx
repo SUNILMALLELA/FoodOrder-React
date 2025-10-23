@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './FoodItem.module.css';
 import { useNavigate } from 'react-router-dom';
 
 function FoodItem({ food }) {
     const navigate = useNavigate();
+    const [loaded, setLoaded] = useState(false);
+    const [error, setError] = useState(false);
+
+    const placeholder = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvRkqHa8X6gNfc2GC3U3CfJT09Qu0zqe7AOA&s';
+
     return (
         <div className={styles.itemContainer}>
-            <img src={food.image} alt={food.name} className={styles.foodImage} />
+            <img
+                src={!loaded || error ? placeholder : food.image}
+                className={styles.foodImage}
+                onLoad={() => setLoaded(true)}
+                onError={() => setError(true)}
+            />
             <div className={styles.info}>
                 <h3 className={styles.foodName}>{food.name}</h3>
                 <p className={styles.cuisine}>{food.cuisine}</p>

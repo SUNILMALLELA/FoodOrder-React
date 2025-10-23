@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styles from './FoodDetails.module.css'
 import Common from '../Components/common';
 function FoodDetailsChild() {
     const [food, setFood] = useState(null);
     const { id } = useParams();
     const URL = `https://dummyjson.com/recipes/${id}`;
+    const navigate = useNavigate()
+    const handleClick = () => {
+        navigate("/cart", { state: { food } })
+    }
 
     useEffect(() => {
         async function fetchFood() {
@@ -36,8 +40,8 @@ function FoodDetailsChild() {
                 <p>Prep Time: {food.prepTimeMinutes} mins</p>
                 <p>Cook Time: {food.cookTimeMinutes} mins</p>
                 <p>Servings: {food.servings}</p>
-                <p>Rating: {food.rating} ⭐ ({food.reviewCount} reviews)</p>
-                <button>Order Now</button>
+                <p>Rating: {food.rating}  ({food.reviewCount} reviews)</p>
+                <button onClick={handleClick}>Order Now</button>
             </div>
         </div>
 
