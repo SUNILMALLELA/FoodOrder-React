@@ -5,7 +5,6 @@
 // import Register from "./pages/Register";
 // import Toastify from "./Components/Toastify";
 // import FoodList from "./pages/FoodList"
-// import Cart from "./pages/Cart";
 // import Drawer from "@mui/material/Drawer";
 
 // // const apiKey = import.meta.env.VITE_API_KEY
@@ -21,9 +20,9 @@
 //         <Route path="/register" element={<Register />} />
 //         <Route path="/home" element={<FoodList />} />
 //         <Route path="/food/:id" element={<FoodDetails />} />
-//         <Route path="/cart" element={<Cart />} />
 //       </Routes>
 //       <Toastify />
+//       <Drawer />
 //     </>
 //   );
 // }
@@ -70,6 +69,12 @@ import UseEffect from "./HooksMethods/useState/UseEffect";
 import UseRef1 from "./HooksMethods/useState/UseRef1";
 import UseRef2 from "./HooksMethods/useState/UseRef2";
 import UseMemo from "./HooksMethods/useState/UseMemo";
+import UseCallback2 from "./HooksMethods/useState/UseCallback2";
+import UseContext1 from "./HooksMethods/useState/UseContext1";
+import Context1 from "./HooksMethods/useState/Context1";
+import UseReducer from "./HooksMethods/useState/UseReducer";
+import UseLayoutEffect from "./HooksMethods/useState/UseLayoutEffect";
+
 // import UseReducer from "./Practice/UseReducer";
 // import UseReducerForm from "./Practice/UseReducerForm";
 // import { Routes, Route } from "react-router-dom";
@@ -108,6 +113,11 @@ function App() {
       <UseRef1 />
       <UseRef2 />
       <UseMemo />
+      <UseCallback2 />
+      <UseContext1 />
+      <Context1 />
+      <UseReducer />
+      <UseLayoutEffect />
 
 
 
