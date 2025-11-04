@@ -2,23 +2,21 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./LoginForm.module.css";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 function LoginForm() {
     const navigate = useNavigate();
     const [data, setData] = useState({ email: "", password: "" });
     const [errors, setErrors] = useState({ email: "", password: "" });
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setData((prev) => ({ ...prev, [name]: value }));
         setErrors({ email: "", password: "" });
     };
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         let newErrors = { email: "", password: "" };
         let hasError = false;
-
         if (!data.email.trim()) {
             newErrors.email = "Please enter an email address.";
             hasError = true;
@@ -39,16 +37,36 @@ function LoginForm() {
             setErrors(newErrors);
             return;
         }
+        try {
+            const response = await loginApi(data);
+            if (response.status === 200) {
+                toast.success(response.data.message || "Login successful!");
+                localStorage.setItem("isLoggedIn", true);
+                setData({ email: "", password: "" });
+                setErrors({ email: "", password: "" });
 
-        console.log("User Data:", data);
-        toast.success("login successfully")
-        localStorage.setItem("isLoggedIn", true);
-        setData({ email: "", password: "" });
-        setErrors({ email: "", password: "" });
-        setTimeout(() => {
-            //alert("Login successful!");
-            navigate("/home")
-        }, 1000);
+                setTimeout(() => {
+                    navigate("/home");
+                }, 2000);
+            }
+        } catch (error) {
+            if (error.response && error.response.data.message) {
+                toast.error(error.response.data.message);
+            } else {
+                toast.error("Invalid credentials or server error!");
+            }
+        }
+    };
+    const loginApi = async (formdata) => {
+        try {
+            const response = await axios.post(
+                "http://localhost:5007/api/auth/login",
+                formdata
+            );
+            return response;
+        } catch (error) {
+            throw error;
+        }
     };
 
     return (
@@ -81,10 +99,13 @@ function LoginForm() {
                     onChange={handleChange}
                 />
                 {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
+
                 <div className={styles.extraLinks}>
                     <a href="#" className={styles.forgotLink}>Forgot password?</a>
                 </div>
+
                 <button type="submit" className={styles.submitButton}>Login</button>
+
                 <p className={styles.registerText}>
                     Don't have an account?{" "}
                     <span
